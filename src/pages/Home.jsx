@@ -7,11 +7,31 @@ import Bird from '../models/Bird'
 import Sky from '../models/Sky'
 import {Plane} from '../models/Plain'
 import HomeInfo from '../components/HomeInfo'
+import { useRef } from 'react'
+import { soundoff, soundon } from "../assets/icons";
+import sakura from "../assets/sakura.mp3";
+import { useEffect } from 'react'
 
 const Home = () => {
 
+  const audioRef = useRef(new Audio(sakura));
+  audioRef.current.volume = 0.4;
+  audioRef.current.loop = true;
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+
+  useEffect(() => {
+    if (isPlayingMusic) {
+      audioRef.current.play();
+    }
+
+    return () => {
+      audioRef.current.pause();
+    };
+  }, [isPlayingMusic]);
+
   const [isRottating, setIsRotating] = useState(false)
   const [currentStage, setCurrentStage] = useState(1)
+  
   const adjsutIslandForScreenSize = () => {
     let screenScale = null
     let screenPosition = [0, -6.5, -43]
@@ -69,14 +89,23 @@ const Home = () => {
               setCurrentStage={setCurrentStage}
             />
             <Plane
-              planeScale = {planeScale}
-              planePosition ={planePosition}
+              scale = {planeScale}
+              position ={planePosition}
               isRotating = {isRottating}
               rotation = {[0,20, 0]}
 
             />
         </Suspense>
       </Canvas>
+      <div className='absolute bottom-2 left-2'>
+        <img
+          src={!isPlayingMusic ? soundoff : soundon}
+          alt='jukebox'
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+          className='w-10 h-10 cursor-pointer object-contain'
+        />
+      </div>
+    
     </section>
   )
 }

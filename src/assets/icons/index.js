@@ -1,11 +1,11 @@
 import css from './css.svg'
 import express from './express.svg'
 import git from './git.svg'
-import github from './github.svg'
+import jquery from './jquery.svg'
 import html from './html.svg'
 import javascript from './javascript.svg'
 import mongodb from './mongodb.svg'
-import motion from './motion.svg'
+import mobx from './mobx.svg'
 import mui from './mui.svg'
 import nextjs from './nextjs.svg'
 import nodejs from './nodejs.svg'
@@ -26,16 +26,28 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import github from './github.svg'
+import postgreSQL from './postgreSQL.svg'
+import threeJS from './threeJS.svg'
+import grpc from './grpc.svg'
+import BNTU from './BNTU.png'
+import free from './free.png'
+import url from './url.svg'
+import todo from './todo.png'
+import dash from './dashb.png'
+import job from './job.png'
+import run from './run.svg'
+import house from './house.svg'
 
 export {
     css,
     express,
     git,
-    github,
+    jquery,
     html,
     javascript,
     mongodb,
-    motion,
+    mobx,
     mui,
     nextjs,
     nodejs,
@@ -55,5 +67,18 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    github,
+    postgreSQL,
+    threeJS,
+    grpc,
+    BNTU,
+    free,
+    url,
+    todo,
+    dash,
+    job,
+    run,
+    house
+    
 }
